@@ -1,0 +1,97 @@
+@import "../../assets/styles/global.scss";
+
+.search-banner-wrapper {
+    border-radius: 50%;
+    background: #fff;
+    width: 500px;
+    height: 500px;
+    position: relative;
+
+    @include for-size(tablet-portrait) {
+        width: 400px;
+        height: 400px;
+    }
+
+    @include for-size(xs-device) {
+        width: 280px;
+        height: 280px;
+    }
+
+    svg {
+        font-size: 350px;
+        position: absolute;
+        top: 15%;
+        left: 15%;
+        fill: #2faeb7;
+
+        @include for-size(tablet-portrait) {
+            font-size: 260px;
+        }
+
+        @include for-size(xs-device) {
+            font-size: 185px;
+        }
+
+        polygon:first-of-type {
+            fill: #2faeb7;
+        }
+
+        g {
+            fill: #fff;
+        }
+    }
+
+    .ml-icon {
+        svg {
+            position: absolute;
+            font-size: 100px;
+            right: 20%;
+            left: auto;
+            top: 46%;
+            fill: #fff;
+            stroke: #fff;
+
+            &:first-of-type {
+                z-index: 1;
+                right: 28%;
+                top: 35%;
+            }
+
+            @include for-size(xs-device) {
+                font-size: 50px;
+                right: 23%;
+                &:first-of-type {
+                    right: 30%;
+                }
+            }
+
+            @include for-size(tablet-portrait) {
+                font-size: 75px;
+                right: 24%;
+                &:first-of-type {
+                    right: 31%;
+                }
+            }
+        }
+    }
+
+    .learning-icon {
+        svg {
+            position: absolute;
+            font-size: 125px;
+            left: 22%;
+            top: 40%;
+            right: auto;
+            fill: #fff;
+            z-index: 1;
+            @include for-size(xs-device) {
+                font-size: 60px;
+            }
+            @include for-size(tablet-portrait) {
+                font-size: 95px;
+                left: 22%;
+                top: 38%;
+            }
+        }
+    }
+}

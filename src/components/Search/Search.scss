@@ -1,0 +1,55 @@
+@import "../../assets/styles/global.scss";
+
+.search-app-container {
+    .search-banner-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 50px 0px 70px;
+        background: #E1F5FE;
+
+        @include for-size(tablet-only) {
+            gap: 50px;
+            padding: 30px 15px;
+        }
+
+        @include for-size(xs-device) {
+            flex-direction: column;
+        }
+
+        .github-link {
+            position: absolute;
+            right: 5%;
+            top: 5%;
+            font-size: 40px;
+            background: #fff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            padding: 10px;
+            cursor: pointer;
+            @include for-size(xs-device) {
+                top: 2%;
+            }
+        }
+
+        .search-image-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+
+            .search-bg-img {
+                width: 100%;
+            }
+        }
+
+        .search-info-wrapper {
+            flex: 1;
+
+            @include for-size(xs-device) {
+                padding: 0 15px;
+            }
+        }
+    }
+}

@@ -1,0 +1,139 @@
+@import "../../assets/styles/global.scss";
+
+.search-result-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px;
+    background: transparent;
+    color: #fff;
+    min-height: 50vh;
+
+    @include for-size(xs-device) {
+        padding: 30px 15px;
+    }
+
+    @include for-size(tablet-only) {
+        padding: 30px 15px;
+    }
+
+    .search-result-content {
+        .doc-list-wrapper {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 70px;
+            margin-bottom: 20px;
+            justify-content: center;
+
+            @include for-size(tablet-only) {
+                gap: 15px;
+            }
+
+            @include for-size(xs-device) {
+                gap: 10px;
+            }
+
+            .card {
+                width: 280px;
+                color: #000;
+                padding: 20px;
+                background: #E1F5FE;
+                border-radius: 15px;
+                margin-bottom: 30px;
+
+                @include for-size(tablet-only) {
+                    width: 250px;
+                }
+
+                .doc-image-wrapper {
+                    position: relative;
+
+                    .doc-image {
+                        width: 100%;
+                    }
+
+                    .doc-icon-group {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: end;
+                        padding: 15px 0 10px;
+
+                        .icon-placeholder {
+                            svg {
+                                font-size: 30px;
+                                cursor: pointer;
+                                color: #2faeb7;
+                            }
+                        }
+                    }
+                }
+
+                .keywords-wrapper {
+                    text-align: left;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 5px;
+                    .keyword-pill {
+                        padding: 5px 10px;
+                        background-color: #2faeb7;
+                        color: #fff;
+                        font-weight: bold;
+                        border-radius: 15px;
+                        font-size: 12px;
+                    }
+                }
+
+                .doc-info-wrapper {
+                    .conference-name {
+                        text-align: left;
+                        font-size: 14px;
+                    }
+
+                    .conference-date {
+                        text-align: left;
+                        font-size: 14px;
+                    }
+
+                    .doc-title {
+                        text-align: left;
+                        font-weight: bold;
+                        font-size: 16px;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+
+        .empty-state-content-wrapper {
+            padding: 50px;
+            border: 5px dashed #d2d2d7;
+            border-radius: 15px;
+
+            .empty-state-img {
+                svg {
+                    font-size: 200px;
+                    width: 100%;
+
+                    path {
+                        fill: #2faeb7;
+                    }
+
+                    g {
+                        path {
+                            fill: #FFB74D;
+                        }
+                    }
+                }
+            }
+
+            .empty-state-text {
+                color: #6e6e73;
+                font-size: 30px;
+
+                @include for-size(xs-device) {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
