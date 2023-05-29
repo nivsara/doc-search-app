@@ -25,7 +25,7 @@ export function SearchResultCard(props: any) {
                     {/* <img className='doc-image' src={screenShot} alt="" /> */}
                     <div className='doc-icon-group'>
                         <div className='icon-placeholder download-icon'>
-                            <IoCloudDownloadOutline />
+                            <a href={props.result.paper_link} target='blank'><IoCloudDownloadOutline /></a>
                         </div>
                     </div>
                 </div>

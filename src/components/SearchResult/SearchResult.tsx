@@ -6,13 +6,11 @@ import { RetrieveDocService } from '../../services/RetrieveDoc.service';
 import { SearchResultCard } from '../SearchResultCard/SearchResultCard';
 
 function SearchResult() {
-
     const [searchResults, setSearchResults] = useState<any>([]);
 
     useEffect(() => {
         RetrieveDocService.getDocs().then((response: any) => {
             setSearchResults(response?.data);
-            console.log("response", response)
         })
     }, [])
 
