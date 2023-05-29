@@ -1,31 +1,28 @@
 import './SearchResult.scss';
 import { FcReading } from "react-icons/fc";
-import screenShot from '../../assets/images/doc-ss.png';
-import { useEffect, useState } from 'react';
-import { RetrieveDocService } from '../../services/RetrieveDoc.service';
 import { SearchResultCard } from '../SearchResultCard/SearchResultCard';
 
-function SearchResult() {
-    const [searchResults, setSearchResults] = useState<any>([]);
+function SearchResult(props: any) {
 
-    useEffect(() => {
-        RetrieveDocService.getDocs().then((response: any) => {
-            setSearchResults(response?.data);
-        })
-    }, [])
+    const onSeeMoreAction = () => {
+        props.seeMoreHandler(props?.searchResultData?.length + 5);
+    }
 
     return (
         <div className='search-result-wrapper'>
             <div className='search-result-content'>
                 <div className='doc-list-wrapper'>
-                    {searchResults.length > 0 && searchResults?.map((result: any, index: number) => {
+                    {props?.searchResultData?.length > 0 && props?.searchResultData?.map((result: any, index: number) => {
                         return (
                             <SearchResultCard key={'result' + index} result={result} />
                         )
                     })
                     }
                 </div>
-                {searchResults.length === 0 &&
+                {props?.searchResultData?.length > 0 && <div className='see-more-section'>
+                    <button onClick={onSeeMoreAction} className='see-more-button'>See More</button>
+                </div>}
+                {props.searchResultData.length === 0 &&
                     <div className='empty-state-content-wrapper'>
                         <div className='empty-state-img'>
                             <FcReading />

@@ -22,31 +22,38 @@ export function SearchResultCard(props: any) {
         <>
             <div className='card'>
                 <div className='doc-image-wrapper'>
-                    {/* <img className='doc-image' src={screenShot} alt="" /> */}
                     <div className='doc-icon-group'>
+                        <div className="ribbon ribbon-top-left">
+                            <span className='match-score-value'>
+                                <span className='match-score'>{props.result.match_score}% Match</span>
+                            </span>
+                        </div>
                         <div className='icon-placeholder download-icon'>
                             <a href={props.result.paper_link} target='blank'><IoCloudDownloadOutline /></a>
                         </div>
                     </div>
                 </div>
                 <div className='doc-info-wrapper'>
+                    <div className='icon-placeholder download-icon'>
+                        <a href={props.result.paper_link} target='blank'><IoCloudDownloadOutline /></a>
+                    </div>
                     <p className='doc-title'>{props.result.title}</p>
-                    <p className='doc-author'>{props.result.authors}</p>
+                    <p className='doc-author'>{props.result.authors.join(', ')}</p>
                     <p className='conference-name'><i>{props.result.conference_name}</i></p>
                     <p className='conference-date'>{props.result.year}</p>
                 </div>
                 <div className='doc-abstract-wrapper'>
-                    <TruncateText content={props.result.abstract_text} />
+                    <span className='abstract-text'>Abstract : </span><TruncateText content={props.result.abstract_text} />
                     <p className='see-more-info' onClick={showPopup}>Click to see full abstract</p>
                 </div>
                 <div className='keywords-wrapper'>
-                    <span className='keyword-pill'>Machine Learning</span>
-                    <span className='keyword-pill'>Neural Networks</span>
-                    <span className='keyword-pill'>Deep Learning</span>
-                    <span className='keyword-pill'>AI</span>
-                    <span className='keyword-pill'>APSA</span>
+                    {props?.result?.keywords?.length > 0 && props?.result?.keywords?.map((keyword: any, index: number) => {
+                        return (
+                            <span key={'keyword' + index} className='keyword-pill'>{keyword}</span>
+                        )
+                    })}
                 </div>
-                {showPopupFlag && <ModalPopup content={props.result.abstract_text} closeModalPopup={closePopup}/>}
+                {showPopupFlag && <ModalPopup content={props.result.abstract_text} closeModalPopup={closePopup} />}
             </div>
         </>
     )

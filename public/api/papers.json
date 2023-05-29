@@ -1,0 +1,103 @@
+[
+    {
+        "title": "Laplacian Score for Feature Selection",
+        "year": "2005",
+        "conference_name": "Advances in Neural Information Processing Systems 18  (NIPS 2005)",
+        "authors": [
+            "Xiaofei He",
+            "Deng Cai",
+            "Partha Niyogi"
+        ],
+        "paper_link": "https://papers.nips.cc/paper_files/paper/2005/file/b5b03f06271f8917685d14cea7c6c50a-Paper.pdf",
+        "abstract_text": "In supervised learning scenarios, feature selection has been studied widely in the literature. Selecting features in unsupervised learning scenarios is a much harder problem, due to the absence of class labels that would guide the search for relevant information. And, almost all of previous unsupervised feature selection methods are \"wrapper\" techniques that require a learning algorithm to evaluate the candidate feature subsets. In this paper, we propose a \"filter\" method for feature selection which is independent of any learning algorithm. Our method can be performed in either supervised or unsupervised fashion. The proposed method is based on the observation that, in many real world classification problems, data from the same class are often close to each other. The importance of a feature is evaluated by its power of locality preserving, or, Laplacian Score. We compare our method with data variance (unsupervised) and Fisher score (supervised) on two data sets. Experimental results demonstrate the effectiveness and efficiency of our algorithm.\n",
+        "keywords": [
+            "feature selection",
+            "selecting features",
+            "feature subsets",
+            "selection methods",
+            "unsupervised feature"
+        ],
+        "match_score": 0.89731085
+    },
+    {
+        "title": "Variational Information Maximization for Feature Selection",
+        "year": "2016",
+        "conference_name": "Advances in Neural Information Processing Systems 29  (NIPS 2016)",
+        "authors": [
+            "Shuyang Gao",
+            "Greg Ver Steeg",
+            "Aram Galstyan"
+        ],
+        "paper_link": "https://papers.nips.cc/paper_files/paper/2016/file/7f100b7b36092fb9b06dfb4fac360931-Paper.pdf",
+        "abstract_text": "Feature selection is one of the most fundamental problems in machine learning. An extensive body of work on information-theoretic feature selection exists which is based on maximizing mutual information between subsets of features and class labels. Practical methods are forced to rely on approximations due to the difficulty of estimating mutual information. We demonstrate that approximations made by existing methods are based on unrealistic assumptions. We formulate a more flexible and general class of assumptions based on variational distributions and use them to tractably generate lower bounds for mutual information. These bounds define a novel information-theoretic framework for feature selection, which we prove to be optimal under tree graphical models with proper choice of variational distributions. Our experiments demonstrate that the proposed method strongly outperforms existing information-theoretic feature selection approaches.\n",
+        "keywords": [
+            "feature selection",
+            "information subsets",
+            "subsets features",
+            "selection",
+            "selection approaches"
+        ],
+        "match_score": 0.89176184
+    },
+    {
+        "title": "A Feature Selection Algorithm Based on the Global Minimization of a Generalization Error Bound",
+        "year": "2004",
+        "conference_name": "Advances in Neural Information Processing Systems 17  (NIPS 2004)",
+        "authors": [
+            "Dori Peleg",
+            "Ron Meir"
+        ],
+        "paper_link": "https://papers.nips.cc/paper_files/paper/2004/file/8cff9bf6694dccfc3b6a613d05d51d16-Paper.pdf",
+        "abstract_text": "A novel linear feature selection algorithm is presented based on the          global minimization of a data-dependent generalization error bound.          Feature selection and scaling algorithms often lead to non-convex opti-          mization problems, which in many previous approaches were addressed          through gradient descent procedures that can only guarantee convergence          to a local minimum. We propose an alternative approach, whereby the          global solution of the non-convex optimization problem is derived via          an equivalent optimization problem. Moreover, the convex optimization          task is reduced to a conic quadratic programming problem for which effi-          cient solvers are available. Highly competitive numerical results on both          artificial and real-world data sets are reported.\n",
+        "keywords": [
+            "feature selection",
+            "linear feature",
+            "selection algorithm",
+            "feature",
+            "selection"
+        ],
+        "match_score": 0.8900999
+    },
+    {
+        "title": "Nearest Neighbor Based Feature Selection for Regression and its Application to Neural Activity",
+        "year": "2005",
+        "conference_name": "Advances in Neural Information Processing Systems 18  (NIPS 2005)",
+        "authors": [
+            "Amir Navot",
+            "Lavi Shpigelman",
+            "Naftali Tishby",
+            "Eilon Vaadia"
+        ],
+        "paper_link": "https://papers.nips.cc/paper_files/paper/2005/file/5a2756a3cb9cde852cad3c97e120b656-Paper.pdf",
+        "abstract_text": "We present a non-linear, simple, yet effective, feature subset selection method for regression and use it in analyzing cortical neural activity. Our algorithm involves a feature-weighted version of the k-nearest-neighbor algorithm. It is able to capture complex dependency of the target func- tion on its input and makes use of the leave-one-out error as a natural regularization. We explain the characteristics of our algorithm on syn- thetic problems and use it in the context of predicting hand velocity from spikes recorded in motor cortex of a behaving monkey. By applying fea- ture selection we are able to improve prediction quality and suggest a novel way of exploring neural data.\n",
+        "keywords": [
+            "subset selection",
+            "feature subset",
+            "feature",
+            "nearest neighbor",
+            "selection method"
+        ],
+        "match_score": 0.88884556
+    },
+    {
+        "title": "Good Classification Measures and How to Find Them",
+        "year": "2021",
+        "conference_name": "Advances in Neural Information Processing Systems 34  (NeurIPS 2021)",
+        "authors": [
+            "Martijn Gösgens",
+            "Anton Zhiyanov",
+            "Aleksey Tikhonov",
+            "Liudmila Prokhorenkova"
+        ],
+        "paper_link": "https://papers.nips.cc/paper_files/paper/2021/file/8e489b4966fe8f703b5be647f1cbae63-Paper.pdf",
+        "abstract_text": "Several performance measures can be used for evaluating classification results: accuracy, F-measure, and many others. Can we say that some of them are better than others, or, ideally, choose one measure that is best in all situations? To answer this question, we conduct a systematic analysis of classification performance measures: we formally define a list of desirable properties and theoretically analyze which measures satisfy which properties. We also prove an impossibility theorem: some desirable properties cannot be simultaneously satisfied. Finally, we propose a new family of measures satisfying all desirable properties except one. This family includes the Matthews Correlation Coefficient and a so-called Symmetric Balanced Accuracy that was not previously used in classification literature. We believe that our systematic approach gives an important tool to practitioners for adequately evaluating classification results.\n",
+        "keywords": [
+            "classification performance",
+            "evaluating classification",
+            "classification results",
+            "accuracy measure",
+            "classification"
+        ],
+        "match_score": 0.8877583
+    }
+]

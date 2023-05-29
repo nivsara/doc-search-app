@@ -13,6 +13,6 @@ export function TruncateText(props: any) {
     }, []);
 
     return (
-        <p className='doc-abstract'>{docAbstract}</p>
+        <span className='doc-abstract'>{docAbstract}</span>
     )
 }

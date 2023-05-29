@@ -3,10 +3,11 @@
 .search-result-wrapper {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 50px;
+    padding: 50px 0;
     background: transparent;
     color: #fff;
     min-height: 50vh;
+    background-color: #fff;
 
     @include for-size(xs-device) {
         padding: 30px 15px;
@@ -31,6 +32,23 @@
 
             @include for-size(xs-device) {
                 gap: 10px;
+            }
+        }
+
+        .see-more-section {
+            .see-more-button {
+                font-family: "Inconsolata", monospace;
+                width: 15%;
+                height: 50px;
+                outline: none;
+                border: none;
+                border-radius: 15px;
+                background: #2faeb7;
+                color: #fff;
+                font-weight: bold;
+                @include for-size(xs-device) {
+                    width: 100%;
+                }
             }
         }
 
