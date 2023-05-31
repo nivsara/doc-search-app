@@ -13,6 +13,7 @@ function Search() {
     const [showSeeMoreLoader, setSeeMoreLoaderFlag] = useState(false);
     const [searchParams, setSearchParams] = useState<any>({});
     const [searchResults, setSearchResults] = useState<any>([]);
+    const [searchKeyword, setSearchKeyword] = useState('');
 
     const goToGitHub = () => {
         window.open('https://github.com/Vishnu-Naik', '_blank');
@@ -44,6 +45,7 @@ function Search() {
         }
         setLoaderFlag(true);
         setSearchFlag(false);
+        setSearchKeyword(keyword);
         await retrieveDocs(param);
         setSearchFlag(true);
     }
@@ -68,7 +70,7 @@ function Search() {
                         <SearchBanner />
                     </div>
                     <div className='search-info-wrapper'>
-                        <SearchInput searchEvent={onSearchTriggered} />
+                        <SearchInput searchEvent={onSearchTriggered} searchQuery={searchKeyword}/>
                     </div>
                 </div>
                 {showSearch && <SearchResult isLoading={showSeeMoreLoader} searchResultData={searchResults} seeMoreHandler={onSeeMoreClick} searchConferencePaperHandler={searchDocs}/>}

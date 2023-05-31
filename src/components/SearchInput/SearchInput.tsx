@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './SearchInput.scss';
 import { BiSearchAlt } from "react-icons/bi";
 import { BsArrowRight } from "react-icons/bs";
@@ -33,6 +33,10 @@ function SearchInput(props: any) {
         }
     }
 
+    useEffect(() => {
+        setSearchText(props.searchQuery);
+    }, [props.searchQuery])
+
     return (
         <div className='search-banner-content'>
             <div className='search-intro-text'>
@@ -40,7 +44,7 @@ function SearchInput(props: any) {
                 <p className='intro-text'>Let us get the documents for you!</p>
             </div>
             <div className='search-input-container'>
-                <input type="text" className={'search-input ' + (toggleSearchIcon ? 'input-focus' : '')} placeholder='Enter your keyword' onChange={onInputChange} onKeyDown={onInputEnter} onFocus={onSearchFocus} onBlur={onSearchBlur}></input>
+                <input type="text" value={searchText} className={'search-input ' + (toggleSearchIcon ? 'input-focus' : '')} placeholder='Enter your keyword' onChange={onInputChange} onKeyDown={onInputEnter} onFocus={onSearchFocus} onBlur={onSearchBlur}></input>
                 <div className='search-icon-wrapper ' onClick={searchConferencePapers}>
                     <div className={'search-icon animate__animated ' + (toggleSearchIcon ? 'animate__fadeOut hide-icon' : 'animate__fadeIn show-icon')}>
                         <BiSearchAlt />
