@@ -8,19 +8,23 @@ function SearchResult(props: any) {
         props.seeMoreHandler(props?.searchResultData?.length + 5);
     }
 
+    const searchConferencePaper = (data: any) => {
+        props.searchConferencePaperHandler(data);
+    }
+
     return (
         <div className='search-result-wrapper'>
             <div className='search-result-content'>
                 <div className='doc-list-wrapper'>
                     {props?.searchResultData?.length > 0 && props?.searchResultData?.map((result: any, index: number) => {
                         return (
-                            <SearchResultCard key={'result' + index} result={result} />
+                            <SearchResultCard key={'result' + index} result={result} searchKeywordHandler={searchConferencePaper} />
                         )
                     })
                     }
                 </div>
                 {props?.searchResultData?.length > 0 && <div className='see-more-section'>
-                    <button onClick={onSeeMoreAction} className='see-more-button'>See More</button>
+                    <button onClick={onSeeMoreAction} className='see-more-button'>{!props.isLoading ? 'See More' : '...'}</button>
                 </div>}
                 {props.searchResultData.length === 0 &&
                     <div className='empty-state-content-wrapper'>

@@ -10,7 +10,7 @@ export function TruncateText(props: any) {
 
     useEffect(() => {
         truncate(props.content);
-    }, []);
+    }, [props.content]);
 
     return (
         <span className='doc-abstract'>{docAbstract}</span>

@@ -18,6 +18,10 @@ export function SearchResultCard(props: any) {
         document.body.classList.remove('modal-open');
     }
 
+    const searchKeyword = (keyword: any) => {
+        props.searchKeywordHandler(keyword);
+    }
+
     return (
         <>
             <div className='card'>
@@ -49,7 +53,7 @@ export function SearchResultCard(props: any) {
                 <div className='keywords-wrapper'>
                     {props?.result?.keywords?.length > 0 && props?.result?.keywords?.map((keyword: any, index: number) => {
                         return (
-                            <span key={'keyword' + index} className='keyword-pill'>{keyword}</span>
+                            <span key={'keyword' + index} className='keyword-pill' onClick={() => searchKeyword(keyword)}>{keyword}</span>
                         )
                     })}
                 </div>

@@ -5,9 +5,12 @@ import SearchBanner from '../SearchBanner/SearchBanner';
 import { FaGithub } from 'react-icons/fa';
 import { useState } from 'react';
 import { RetrieveDocService } from '../../services/RetrieveDoc.service';
+import { Loader } from '../../utils/GlobalUiComponents/Loader/Loader';
 
 function Search() {
     const [showSearch, setSearchFlag] = useState(false);
+    const [showLoader, setLoaderFlag] = useState(false);
+    const [showSeeMoreLoader, setSeeMoreLoaderFlag] = useState(false);
     const [searchParams, setSearchParams] = useState<any>({});
     const [searchResults, setSearchResults] = useState<any>([]);
 
@@ -15,44 +18,63 @@ function Search() {
         window.open('https://github.com/Vishnu-Naik', '_blank');
     }
 
-    const onSearchTriggered = (data: any) => {
-        retrieveDocs(data);
+    const onSearchTriggered = async (data: any) => {
+        setLoaderFlag(true);
+        setSearchFlag(false);
+        await retrieveDocs(data);
+        setSearchFlag(true);
     }
 
-    const retrieveDocs =(searchParams: any) => {
+    const retrieveDocs = async (searchParams: any, isSeeMore? : boolean) => {
         setSearchParams(searchParams);
-        RetrieveDocService.getDocs(searchParams).then((response: any) => {
+        await RetrieveDocService.getDocs(searchParams).then((response: any) => {
             response.data.map((item: any) => {
                 item['match_score'] = Math.floor(item['match_score'] * 100)
-            });
-            setSearchResults(response?.data);
-            setSearchFlag(true);
-        })
+            }); 
+            setLoaderFlag(false);
+            setSeeMoreLoaderFlag(false);
+            setSearchResults(response.data);
+        });
     }
 
-    const onSeeMoreClick = (count: any) => {
-        let searchQueryParams : any = {
-            'query' : searchParams.query,
+    const searchDocs = async (keyword: any) => {
+        let param = {
+            'query' : keyword,
+            'result-size': 5
+        }
+        setLoaderFlag(true);
+        setSearchFlag(false);
+        await retrieveDocs(param);
+        setSearchFlag(true);
+    }
+
+    const onSeeMoreClick = async (count: any) => {
+        let searchQueryParams: any = {
+            'query': searchParams.query,
             'result-size': count
         }
-        retrieveDocs(searchQueryParams);
+        setSeeMoreLoaderFlag(true);
+        await retrieveDocs(searchQueryParams, true);
     }
 
     return (
-        <div className='search-app-container'>
-            <div className='search-banner-container'>
-                <div onClick={goToGitHub} className='github-link'>
-                    <span><FaGithub /></span>
+        <>
+            <div className='search-app-container'>
+                <div className='search-banner-container'>
+                    <div onClick={goToGitHub} className='github-link'>
+                        <span><FaGithub /></span>
+                    </div>
+                    <div className='search-image-wrapper'>
+                        <SearchBanner />
+                    </div>
+                    <div className='search-info-wrapper'>
+                        <SearchInput searchEvent={onSearchTriggered} />
+                    </div>
                 </div>
-                <div className='search-image-wrapper'>
-                    <SearchBanner />
-                </div>
-                <div className='search-info-wrapper'>
-                    <SearchInput searchEvent={onSearchTriggered}/>
-                </div>
+                {showSearch && <SearchResult isLoading={showSeeMoreLoader} searchResultData={searchResults} seeMoreHandler={onSeeMoreClick} searchConferencePaperHandler={searchDocs}/>}
             </div>
-            {showSearch && <SearchResult searchResultData={searchResults} seeMoreHandler={onSeeMoreClick}/>}
-        </div>
+            {showLoader && <Loader />}
+        </>
     )
 }
 
