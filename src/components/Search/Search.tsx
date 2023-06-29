@@ -16,7 +16,7 @@ function Search() {
     const [searchKeyword, setSearchKeyword] = useState('');
 
     const goToGitHub = () => {
-        window.open('https://github.com/Vishnu-Naik', '_blank');
+        window.open('https://github.com/Vishnu-Naik/conference-paper-search-engine', '_blank');
     }
 
     const onSearchTriggered = async (data: any) => {
@@ -70,12 +70,11 @@ function Search() {
                         <SearchBanner />
                     </div>
                     <div className='search-info-wrapper'>
-                        <SearchInput searchEvent={onSearchTriggered} searchQuery={searchKeyword}/>
+                        <SearchInput searchEvent={onSearchTriggered} searchQuery={searchKeyword} isLoading={showLoader}/>
                     </div>
                 </div>
                 {showSearch && <SearchResult isLoading={showSeeMoreLoader} searchResultData={searchResults} seeMoreHandler={onSeeMoreClick} searchConferencePaperHandler={searchDocs}/>}
             </div>
-            {showLoader && <Loader />}
         </>
     )
 }

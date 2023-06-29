@@ -24,7 +24,7 @@ function SearchResult(props: any) {
                     }
                 </div>
                 {props?.searchResultData?.length > 0 && <div className='see-more-section'>
-                    <button onClick={onSeeMoreAction} className='see-more-button'>{!props.isLoading ? 'See More' : '...'}</button>
+                    <button onClick={onSeeMoreAction} className={'see-more-button ' + (props.isLoading ? 'loading-btn': '')}>{!props.isLoading ? 'See More' : 'Loading...'}</button>
                 </div>}
                 {props.searchResultData.length === 0 &&
                     <div className='empty-state-content-wrapper'>

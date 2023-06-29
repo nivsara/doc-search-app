@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './SearchInput.scss';
 import { BiSearchAlt } from "react-icons/bi";
 import { BsArrowRight } from "react-icons/bs";
+import { Loader } from '../../utils/GlobalUiComponents/Loader/Loader';
 
 function SearchInput(props: any) {
 
@@ -43,6 +44,8 @@ function SearchInput(props: any) {
                 <p className='intro-text'>Type in your keyword. </p>
                 <p className='intro-text'>Let us get the documents for you!</p>
             </div>
+            {props.isLoading && <Loader/>}
+            {!props.isLoading && 
             <div className='search-input-container'>
                 <input type="text" value={searchText} className={'search-input ' + (toggleSearchIcon ? 'input-focus' : '')} placeholder='Enter your keyword' onChange={onInputChange} onKeyDown={onInputEnter} onFocus={onSearchFocus} onBlur={onSearchBlur}></input>
                 <div className='search-icon-wrapper ' onClick={searchConferencePapers}>
@@ -53,7 +56,7 @@ function SearchInput(props: any) {
                         <BsArrowRight />
                     </div>
                 </div>
-            </div>
+            </div>}
         </div>
     )
 }

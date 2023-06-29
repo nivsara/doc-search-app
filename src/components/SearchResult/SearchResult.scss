@@ -46,6 +46,13 @@
                 background: #2faeb7;
                 color: #fff;
                 font-weight: bold;
+                cursor: pointer;
+                &.loading-btn {
+                    background: #fff;
+                    border: 2px solid #2faeb7;
+                    color: #384951;
+                    cursor: none;
+                }
                 @include for-size(xs-device) {
                     width: 100%;
                 }

@@ -37,9 +37,19 @@
             @include for-size(xs-device) {
                 padding: 20px;
             }
-            .close-icon {
-                font-size: 30px;
+            .popup-header-wrapper {
+                display: block;
                 width: 100%;
+            }
+
+            .popup-header {
+                display: inline-block;
+                margin: 0 0 5% 0;
+            }
+            .close-icon {
+                float: right;
+                font-size: 30px;
+                cursor: pointer;
                 text-align: right;
                 margin-bottom: 20px;
             }

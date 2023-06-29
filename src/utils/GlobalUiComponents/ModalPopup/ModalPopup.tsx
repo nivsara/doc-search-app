@@ -12,7 +12,10 @@ export function ModalPopup(props: any) {
             <div className='modal-popup'>
                 <div className='popup-wrapper'>
                     <div className='popup-content'>
-                        <div className='close-icon' onClick={closeModal}><RiCloseCircleFill /></div>
+                        <div className='popup-header-wrapper'>
+                            <h1 className='popup-header'>Abstract</h1>
+                            <div className='close-icon' onClick={closeModal}><RiCloseCircleFill /></div>
+                        </div>
                         <div className='popup-content-text'>{props.content}</div>
                     </div>
                 </div>

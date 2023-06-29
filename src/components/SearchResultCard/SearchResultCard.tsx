@@ -48,15 +48,15 @@ export function SearchResultCard(props: any) {
                 </div>
                 <div className='doc-abstract-wrapper'>
                     <span className='abstract-text'>Abstract : </span><TruncateText content={props.result.abstract_text} />
-                    <p className='see-more-info' onClick={showPopup}>Click to see full abstract</p>
+                    {props.result.abstract_text !== 'Abstract Unavailable' && <p className='see-more-info' onClick={showPopup}>Click to see full abstract</p>}
                 </div>
-                <div className='keywords-wrapper'>
+                {props.result.abstract_text !== 'Abstract Unavailable' && <div className='keywords-wrapper'>
                     {props?.result?.keywords?.length > 0 && props?.result?.keywords?.map((keyword: any, index: number) => {
                         return (
                             <span key={'keyword' + index} className='keyword-pill' onClick={() => searchKeyword(keyword)}>{keyword}</span>
                         )
                     })}
-                </div>
+                </div>}
                 {showPopupFlag && <ModalPopup content={props.result.abstract_text} closeModalPopup={closePopup} />}
             </div>
         </>
