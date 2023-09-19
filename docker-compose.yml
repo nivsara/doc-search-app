@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  front-end:
+    build: ./ui
+    container_name: ui_c
+    ports:
+      - '3000:3000'
+    depends_on: 
+      - back-end
+    # for hot-reloading
+    stdin_open: true
+  
+  back-end:
+    build: ./app
+    container_name: api_c
+    ports:
+      - '8000:8000'
+    # for hot-reloading
+    stdin_open: true

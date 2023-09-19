@@ -1,0 +1,236 @@
+@import "../../assets/styles/global.scss";
+
+.card {
+    width: 280px;
+    color: #000;
+    padding: 20px;
+    background: #E1F5FE;
+    border-radius: 15px;
+    margin-bottom: 30px;
+
+    @include for-size(tablet-only) {
+        width: 250px;
+    }
+
+    @include for-size(tablet-device) {
+        flex: 0 1 40%;
+    }
+
+    .ribbon {
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        position: absolute;
+        z-index: 2;
+    }
+
+    .ribbon::before,
+    .ribbon::after {
+        position: absolute;
+        z-index: -1;
+        content: '';
+        display: block;
+        border: 5px solid #2980b9;
+    }
+
+    .ribbon>span:first-child {
+        position: absolute;
+        display: block;
+        width: 225px;
+        padding: 15px 0;
+        background-color: #2faeb7;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        color: #fff;
+        font: 700 18px/1;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    /* top left*/
+    .ribbon-top-left {
+        top: -28px;
+        left: -28px;
+    }
+
+    .ribbon-top-left::before,
+    .ribbon-top-left::after {
+        border-top-color: transparent;
+        border-left-color: transparent;
+    }
+
+    .ribbon-top-left::before {
+        top: 0px;
+        right: 0;
+    }
+
+    .ribbon-top-left::after {
+        bottom: 0;
+        left: 0px;
+    }
+
+    .ribbon-top-left>span:first-child {
+        right: -25px;
+        top: 30px;
+        transform: rotate(-45deg);
+
+        .match-score {
+            font-size: 14px;
+            margin-left: 60px;
+            font-weight: bold;
+        }
+    }
+
+    .doc-image-wrapper {
+        position: relative;
+
+        .doc-image {
+            width: 100%;
+        }
+
+        .doc-icon-group {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            padding: 15px 0 10px;
+            align-items: center;
+
+            .match-score {
+                .match-score-content {
+                    margin: 0;
+                    padding: 10px;
+                    background: #2faeb7;
+                    color: #fff;
+                    font-weight: bold;
+                    border-radius: 50%;
+                    width: 60px;
+                    height: 60px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+
+                    .match-score-value {
+                        margin: 0;
+                    }
+
+                    .match-score-title {
+                        margin: 0;
+                    }
+                }
+            }
+
+            .icon-placeholder {
+                width: 30px;
+                height: 30px;
+                padding: 10px;
+                border-radius: 50%;
+                background: #fff;
+
+                @include for-size(tablet-device) {
+                    display: none;
+                }
+
+                svg {
+                    font-size: 30px;
+                    cursor: pointer;
+                    color: #2faeb7;
+                }
+            }
+        }
+    }
+
+    .keywords-wrapper {
+        text-align: left;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+
+        .keyword-pill {
+            padding: 5px 10px;
+            background-color: #2faeb7;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 15px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+    }
+
+    .doc-info-wrapper {
+        background: #fff;
+        padding: 15px;
+        border-radius: 15px;
+        color: #384951;
+        position: relative;
+
+        .conference-name {
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .conference-date {
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .doc-title {
+            text-align: left;
+            font-weight: bold;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .doc-author {
+            text-align: left;
+        }
+
+        .match-score {
+            text-align: left;
+            color: #2faeb7;
+            font-weight: bold;
+        }
+
+        .icon-placeholder {
+            width: 30px;
+            height: 30px;
+            padding: 10px;
+            border-radius: 50%;
+            background: #E1F5FE;
+            margin-left: auto;
+            margin-bottom: 20px;
+
+            @include for-size(xs-device) {
+                display: none;
+            }
+
+            svg {
+                font-size: 30px;
+                cursor: pointer;
+                color: #2faeb7;
+            }
+        }
+    }
+
+    .doc-abstract-wrapper {
+        text-align: left;
+        margin-top: 20px;
+
+        .doc-abstract {
+            text-align: left;
+            color: #384951;
+        }
+
+        .abstract-text {
+            text-align: left;
+            color: #2faeb7;
+            font-weight: bold;
+        }
+
+        .see-more-info {
+            text-align: left;
+            color: #2faeb7;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    }
+}

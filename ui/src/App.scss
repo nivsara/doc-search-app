@@ -1,0 +1,15 @@
+@import './assets/styles/global.scss';
+
+.App {
+  text-align: center;
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+html, 
+body {
+    height: 100%;
+    background: #E1F5FE;
+}

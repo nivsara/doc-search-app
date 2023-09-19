@@ -1,46 +1,33 @@
-# Getting Started with Create React App
+# Conference paper search engine
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
+This is a search engine for conference papers published in Conference on Neural Information Processing Systems (NeurIPS) from 1987 to 2022. More details about the conference can be found [here](https://nips.cc/). The search engine uses the data scrapped from the [NeurIPS website](https://papers.nips.cc/). The data can be found at `app/data/`.
 
-## Available Scripts
+The search engine is implemented in Python using FastAPI and the web interface is implemented using React web framework.
 
-In the project directory, you can run:
+## How to run
+The search engine can be run using Docker. To run the search engine, run the following command in the root directory of the project:
+```bash
+docker-compose -f docker-compose.yml up --build
+```
+The search engine can be accessed at `http://localhost:3000/`.
 
-### `npm start`
+## How to use
+The search engine can be used to search for conference papers. Just enter the query in the search bar and click on the search button. The search results will be displayed below the search bar.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## How it works
+The available abstract are encoding using SPECTER model which is based on BERT, trained on scientific citations and these encodings can be used to estimate the similarity of two publications. Hence it makes sense to use this model, more technical details about SPECTER can be found [here](https://arxiv.org/abs/2004.07180). To realize SPECTER, Sentence Transformers can be used which is a Python framework for state-of-the-art sentence, text and image embeddings, more detials can be found [here](https://www.sbert.net/). The SPECTER is available under name `allenai-specter` in Sentence transformer framework.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The vectors are stored in a vector search engine for fast retrieval. This project will be using the [Qdrant vector search engine](https://qdrant.tech/) for this purpose. The abstracts of the scientific papers scapped from internet will be encoded using SPECTER model and the Qdrant vector search engine uses these encoding to index the conference papers. The same vector search engine is used to find the most similar conference papers to the query with the help of cosine similarity.
 
-### `npm test`
+The search engine is implemented using FastAPI which is a modern, fast (high-performance), web framework for building APIs with Python 3.6+ based on standard Python type hints. The web interface is implemented using React web framework. The Qdrant Cloud platform is used to host the vector search engine.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## More details
 
-### `npm run build`
+The app can be run separately using the following command for more understanding:
+```bash
+cd app
+uvicorn main:app --reload
+```
+The app can be accessed at `http://localhost:8000/`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
